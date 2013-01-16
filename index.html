@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>ChatRulet</title>
+
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js'></script>
+    <script src='js/strophejs/strophe.js'></script>
+    <script src='js/strophejs/strophe.register.js'></script>
+
+    <link rel='stylesheet' href='css/base.css'>
+    <script src='js/vuala.js'></script>
+  </head>
+  <body>
+    <h1>Vuala rulet Chat on XMPP</h1>
+    
+  <div id='wrapper' class='hidden'>
+    <div id='toolbar' >
+      Version <label id='version'></label>
+      Welcome <label id="nick"></label>
+      <label>Users on line <label id="num_users_online">0</label></label>
+      <input id='leave' type='button' value='Leave Room'
+             disabled='disabled'>
+    </div>
+    <div id='chat-camera'>
+      <div class='chat-camara-izquierda'>
+          <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                id="video1" width="400" height="300"
+                codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+                <param name="movie" value="fla/VideoIO.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#000000" />
+                <param name="allowFullScreen" value="true" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="flashVars" value="controls=true" />
+                <embed src="fla/VideoIO.swf" quality="high" bgcolor="#000000"
+                    width="400" height="300" name="video1" align="middle"
+                    play="true" loop="false" quality="high"
+                    allowFullScreen="true"
+                    allowScriptAccess="always"
+                    flashVars="controls=true"
+                    type="application/x-shockwave-flash"
+                    pluginspage="http://www.adobe.com/go/getflashplayer">
+                </embed>
+            </object>
+             <br/>
+            <input value="reset" type="button" 
+                onclick="getFlashMovie('video1').setProperty('src', null)"/>
+      </div>
+      <div class='chat-camara-derecha'>
+          <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                id="video2" width="400" height="300"
+                codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+                <param name="movie" value="fla/VideoIO.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#000000" />
+                <param name="allowFullScreen" value="true" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="flashVars" value="controls=true" />
+                <embed src="fla/VideoIO.swf" quality="high" bgcolor="#000000"
+                    width="400" height="300" name="video2" align="middle"
+                    play="true" loop="false" quality="high"
+                    allowFullScreen="true"
+                    allowScriptAccess="always"
+                    flashVars="controls=true"
+                    type="application/x-shockwave-flash"
+                    pluginspage="http://www.adobe.com/go/getflashplayer">
+                </embed>
+            </object>
+      </div>
+    </div>
+    
+    <div>
+      <div id='chat-area' >
+        <div>
+          <div id='room-topic'></div>
+        </div>
+        <div id='chat'>
+        </div>
+
+        <textarea id='input'></textarea>
+        <a id='nextId' href="#">Next</a>
+      </div>
+    </div>
+    
+  </div>
+
+    <!-- login dialog -->
+    <div id='login_dialog'>
+      <p>
+      <label>Nickname:</label>
+      <input type='text' id='nickname' />
+      <br><br>
+      <input type="submit" value="Enviar" id="submit_login" />
+      </p>
+    </div>
+    <br><br>
+    <div class = 'footer'>
+            &copy; 2012 | Hecho con <font color='#FA5858' size='1px'>♥</font>.
+    </div>
+    
+  </body>
+</html>

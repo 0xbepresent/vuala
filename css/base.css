@@ -1,0 +1,176 @@
+@font-face{
+    font-family: "code";
+    src: url(code.ttf);
+}
+
+body {
+    font:13px arial;
+    color: #6E6E6E;
+    text-align:center;
+    padding:35px; 
+    background-color: #3A3535;
+}
+
+*{
+    font-family: "code";
+}
+
+a {
+    color:#0000FF;
+    text-decoration:none; }
+ 
+a:hover { 
+    text-decoration:underline; 
+}
+ 
+#wrapper, #login_dialog{
+    margin:0 auto;
+    padding-bottom:20px;
+    padding: 15px;
+    text-align: left;
+    background:#FFE6E7;
+    width:904px;
+    border:1px solid #E6E6E6; 
+    border-radius: 6px;
+    box-shadow: 9px 5px 11px #B5C1C5, 0 0 0 10px #FFE6E7 inset;
+}
+
+#login_dialog{ 
+    padding-top:18px; 
+}
+ 
+#login_dialog p{ 
+    margin: 5px; 
+}
+
+h1 {
+    text-align: center;
+    color: #E23535;
+}
+
+.hidden {
+    display: none
+}
+
+.clear {
+    clear: both;
+}
+
+.footer
+{
+    font-size: 10px;
+    color: #E23535;
+    width:auto;
+    height:20px;
+    text-align:center;
+}
+
+#toolbar {
+    text-align: left;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+#room-name {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+#room-topic {
+    font-style: italic;
+}
+
+#chat-area {
+    width: 500px;
+}
+
+#chat {
+    overflow: auto;
+    height: 120px;
+    border: solid 1px #CCC;
+    width: 890px;
+    background-color: #fff;
+    margin: 5px;
+}
+
+#chat-camera{
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:5px;
+    padding:10px;
+    background:#fff;
+    height:auto;
+    width:870px;
+    border:1px solid #E6E6E6;
+    overflow:auto; 
+}
+.chat-camara-izquierda{
+    border:1px solid #E6E6E6;
+    width:auto;
+    height:auto;
+    float:left;
+}
+.chat-camara-derecha{
+    border:1px solid #E6E6E6;
+    width:auto;
+    height:auto;
+    float:right;
+}
+
+#participants {
+    float: left;
+    width: 200px;
+    height: 500px;
+    overflow: auto;
+}
+
+#participant-list {
+    list-style: none;
+}
+
+#input {
+    background:#fff;
+    width:880px;
+    height:50px;
+    resize: none;
+    border:1px solid #E6E6E6; 
+    margin: 5px;
+}
+
+.notice {
+    font-style: italic;
+    font-weight: bold;
+    color: #3d3;
+}
+
+.error {
+    color: #d33;
+}
+
+.message {
+    color: #aaa;
+}
+
+.nick {
+    color: #66f;
+}
+
+.self {
+    color: #f66;
+}
+
+.body {
+    color: #000;
+}
+
+.delayed {
+    opacity: 0.5;
+}
+
+.private {
+    
+}
+
+.action {
+    color: #333;
+}
