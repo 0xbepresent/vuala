@@ -10,7 +10,8 @@
 var VualaVersion = "1.0.0";
 
 /*Configuration*/
-var defaultDomain = 'jabbermisalabs.com';
+//Change for your domain
+var defaultDomain = 'jabbermisalabs.com'; 
 var defaultConferenceServer = 'conference.jabbermisalabs.com';
 var defaultBOSH = 'http://jabbermisalabs.com:5280/xmpp-httpbind';
 var roomChat = "vuala";
