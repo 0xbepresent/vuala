@@ -1,5 +1,8 @@
 /*
-*The operation of the class is to generate a random conversation with users *connected to the XMPP server. The message handling is done with XMPP, *randomly generates a username and password for the XMPP server and the same *data are used to connect to the server.
+*The operation of the class is to generate a random conversation with users 
+*connected to the XMPP server. The message handling is done with XMPP, 
+*randomly generates a username and password for the XMPP server and the same 
+*data are used to connect to the server.
 *XMPP need XEP
 */
 
