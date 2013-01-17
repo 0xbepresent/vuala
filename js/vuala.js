@@ -159,25 +159,14 @@ $(document).ready(function(){
    $("#input").keypress(function(ev){
      if(ev.which === 13){
         ev.preventDefault();
-        var body = $(this).val();
-        if(Vuala.participants[Vuala.fanfeando]){
-            Vuala.connection.send(
-            $msg({
-                to: Vuala.room+"/"+Vuala.fanfeando,
-                type: "chat"}).c("body").t(body));
-                Vuala.add_message(
-                        "<div class='message private'>"+
-                        "<span class='nick self'>"+
-                        Vuala.nickname+
-                        "</span> <span class='body'>"+
-                        body+"</span></div>");
-        }else{
-            Vuala.add_message(
-            "<div class='notice error'>Error: Not asigned" +
-            "</div>");
-        }
+        sendMessage($(this).val());
         $(this).val(null);
      }
+   });
+   
+   $("#btn_input").click(function(){
+     sendMessage($("#input").val());
+     $("#input").val(null);
    });
    
    $("#nextId").click(function(){
@@ -342,6 +331,25 @@ function users_online(num){
 /*
 *Functions help to connect To Vuala
 */
+function sendMessage(body){
+    if(Vuala.participants[Vuala.fanfeando]){
+            Vuala.connection.send(
+            $msg({
+                to: Vuala.room+"/"+Vuala.fanfeando,
+                type: "chat"}).c("body").t(body));
+                Vuala.add_message(
+                        "<div class='message private'>"+
+                        "<span class='nick self'>"+
+                        Vuala.nickname+
+                        "</span> <span class='body'>"+
+                        body+"</span></div>");
+    }else{
+            Vuala.add_message(
+            "<div class='notice error'>Error: Not asigned" +
+            "</div>");
+    }
+}
+
 function next_id(){
     //Find in people with Vuala.fanfeando = null
      if(Vuala.usersArray.length>1){

@@ -1,18 +1,19 @@
 @font-face{
-    font-family: "code";
-    src: url(code.ttf);
+    font-family: "ChampagneLimousines";
+    src: url(ChampagneLimousines.ttf);
 }
 
 body {
-    font:13px arial;
-    color: #6E6E6E;
+    font:19px arial;
+    font-weight:bold;
+    color: #000;
     text-align:center;
     padding:35px; 
     background-color: #3A3535;
 }
 
 *{
-    font-family: "code";
+    font-family: "ChampagneLimousines";
 }
 
 a {
@@ -28,7 +29,7 @@ a:hover {
     padding-bottom:20px;
     padding: 15px;
     text-align: left;
-    background:#FFE6E7;
+    background:#FFE1E1;
     width:904px;
     border:1px solid #E6E6E6; 
     border-radius: 6px;
@@ -58,7 +59,7 @@ h1 {
 
 .footer
 {
-    font-size: 10px;
+    font-size: 12px;
     color: #E23535;
     width:auto;
     height:20px;
@@ -117,17 +118,6 @@ h1 {
     float:right;
 }
 
-#participants {
-    float: left;
-    width: 200px;
-    height: 500px;
-    overflow: auto;
-}
-
-#participant-list {
-    list-style: none;
-}
-
 #input {
     background:#fff;
     width:880px;
@@ -141,6 +131,12 @@ h1 {
     font-style: italic;
     font-weight: bold;
     color: #3d3;
+}
+
+.btn{
+    background-color: #5B4545;
+    color: #FFC2B8;
+    border: 1px dotted #FE2E64;
 }
 
 .error {

@@ -13,15 +13,21 @@
     <script src='js/vuala.js'></script>
   </head>
   <body>
-    <h1>Vuala rulet Chat on XMPP</h1>
+    <h1>Vuala chatrulet on XMPP</h1>
     
   <div id='wrapper' class='hidden'>
     <div id='toolbar' >
-      Version <label id='version'></label>
-      Welcome <label id="nick"></label>
-      <label>Users on line <label id="num_users_online">0</label></label>
-      <input id='leave' type='button' value='Leave Room'
-             disabled='disabled'>
+      Version <label id='version'></label><br>
+      <div>
+        <div style='float:left;'>
+          Welcome <label id="nick"></label>
+        </div>
+        <div style='float:right;'>
+          <label>Users on line <label id="num_users_online">0</label></label>
+          <input id='leave' type='button' value='Leave Room'
+                 disabled='disabled' class='btn'>
+        </div>
+      </div>
     </div>
     <div id='chat-camera'>
       <div class='chat-camara-izquierda'>
@@ -45,7 +51,7 @@
                 </embed>
             </object>
              <br/>
-            <input value="reset" type="button" 
+            <input value="Reset Video" type="button" class='btn'
                 onclick="getFlashMovie('video1').setProperty('src', null)"/>
       </div>
       <div class='chat-camara-derecha'>
@@ -68,6 +74,9 @@
                     pluginspage="http://www.adobe.com/go/getflashplayer">
                 </embed>
             </object>
+            <br>
+            <input value="Reset Video" type="button" class='btn'
+                onclick="getFlashMovie('video2').setProperty('src', null)"/>
       </div>
     </div>
     
@@ -80,8 +89,11 @@
         </div>
 
         <textarea id='input'></textarea>
-        <a id='nextId' href="#">Next</a>
       </div>
+      <div style='float:right;'>
+          <input value="Send" type="button" class='btn' id='btn_input'/>
+          <input value="Next Chat!" type="button" class='btn' id='nextId'/>
+        </div>
     </div>
     
   </div>
@@ -92,7 +104,7 @@
       <label>Nickname:</label>
       <input type='text' id='nickname' />
       <br><br>
-      <input type="submit" value="Enviar" id="submit_login" />
+      <input type="submit" value="Send" id="submit_login" class='btn'/>
       </p>
     </div>
     <br><br>
