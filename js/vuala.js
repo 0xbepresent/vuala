@@ -3,7 +3,7 @@
 *connected to the XMPP server. The message handling is done with XMPP, 
 *randomly generates a username and password for the XMPP server and the same 
 *data are used to connect to the server.
-*XMPP need XEP
+*XMPP need enabled MUC XEP-0045 and In-Band registration XEP-0077
 */
 
 /*Version number*/
