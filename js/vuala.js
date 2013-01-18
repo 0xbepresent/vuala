@@ -44,17 +44,10 @@ var Vuala = {
                 $(presence).attr("type") !== "unavailable"){
                 Vuala.participants[nick] = true;
                 //Add my nick
-                add_list_users(nick);                
+                add_list_users(nick);
             }else if(Vuala.participants[nick] && 
                     $(presence).attr("type") === "unavailable"){
-                //Remove from participants list
-                $("#participant-list li").each(function(){
-                   if(nick === $(this).text()){
-                        $(this).remove();
-                        Vuala.participants[nick] = null;
-                        return false;
-                   }
-                });
+                Vuala.participants[nick] = null;
                 user_left(nick);
                 remove_list_users(nick);
                 getFlashMovie('video2').setProperty('src', null);
@@ -112,9 +105,11 @@ var Vuala = {
             var to = nick;
             var local_nearID = Vuala.nearID;
             change_local_fanfeando(to, local_nearID);
+            //Add label
+            $("#chatWith").text(nick);
         }
         // else{
-        //     Vuala.add_message("<div class='message private'><span class='body'> Asing imposible </span");
+        //     Asign Imposible
         // }
         return true;
     },
@@ -127,12 +122,15 @@ var Vuala = {
         Vuala.add_message("<div class='message private'>"+
                                 "<span class='body'> Chat with "+
                                 nick+"</span");
+        //Add label
+        $("#chatWith").text(nick);
         return true;
     },
     delete_next_id: function(message){
         //Check if is available
         Vuala.fanfeando = "-";
         Vuala.farID = "-";
+        $("#chatWith").text("Nothing");
         getFlashMovie('video2').setProperty('src', null);
         //Vuala.add_message("<div class='message private'><span class='body'> Delete myID</span");
         return true;
@@ -280,7 +278,6 @@ function initHandlers(){
 */
 //Display disconnected
 function disconnected(){
-    $("#participant-list").empty();
     $("#chat").empty();
     $("#wrapper").css("display", "none");
     $("#login_dialog").css("display", "block");
