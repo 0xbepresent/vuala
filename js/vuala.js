@@ -39,7 +39,7 @@ var Vuala = {
             var nick = Strophe.getResourceFromJid(from);
             if($(presence).attr("type") === "error" && !Vuala.joined){
                 //Error joining room; reset connection
-                logoutXMPP();
+                alert("Error to connect");
             }else if(!Vuala.participants[nick] && 
                 $(presence).attr("type") !== "unavailable"){
                 Vuala.participants[nick] = true;
@@ -50,7 +50,6 @@ var Vuala = {
                 Vuala.participants[nick] = null;
                 user_left(nick);
                 remove_list_users(nick);
-                getFlashMovie('video2').setProperty('src', null);
             }
             if($(presence).attr("type") !== "error" && !Vuala.joined){
                 //Check for status 110 to see if its our own presence
@@ -107,6 +106,7 @@ var Vuala = {
             change_local_fanfeando(to, local_nearID);
             //Add label
             $("#chatWith").text(nick);
+            $("#chat").text("");
         }
         // else{
         //     Asign Imposible
@@ -124,6 +124,7 @@ var Vuala = {
                                 nick+"</span");
         //Add label
         $("#chatWith").text(nick);
+        $("#chat").text("");
         return true;
     },
     delete_next_id: function(message){
@@ -133,6 +134,7 @@ var Vuala = {
         $("#chatWith").text("Nothing");
         getFlashMovie('video2').setProperty('src', null);
         //Vuala.add_message("<div class='message private'><span class='body'> Delete myID</span");
+        $("#chat").text("");
         return true;
     }
 };
@@ -176,15 +178,15 @@ $(document).ready(function(){
    
    //Logout on click button
    $("#leave").click(function(){
-        Vuala.usersArray = new Array();
-        Vuala.fanfeando = null;
-        getFlashMovie('video1').setProperty('src', null);
+        //Delete id_oposit
+        delete_id_fanfeando();
         logoutXMPP();
    });
    
    // Logout on browser close
-    $(document).unload(function() {
-        getFlashMovie('video1').setProperty('src', null);
+    $(window).unload(function(){
+        //Delete id_oposit
+        delete_id_fanfeando();
         logoutXMPP();
     });
 });
@@ -230,13 +232,11 @@ function loginUserXMPP(username, password){
 }
 
 function logoutXMPP(){
+    //Display disconnected
+    disconnected();
     Vuala.connection.send($pres({to: Vuala.room+"/"+Vuala.nickname,
                             type: "unavailable"}));
     Vuala.connection.disconnect();
-    //Delete id_oposit
-    delete_id_fanfeando();
-    //Display disconnected
-    disconnected();
     window.location.reload(true);
     return true;
 }
@@ -281,6 +281,7 @@ function disconnected(){
     $("#chat").empty();
     $("#wrapper").css("display", "none");
     $("#login_dialog").css("display", "block");
+    getFlashMovie('video1').setProperty('src', null);
     return true;
 }
 
@@ -294,7 +295,7 @@ function room_joined(){
 
 //Display user left
 function user_left(nick){
-    Vuala.add_message("<div class='notice'>*** "+nick+" left.</div>");
+    //Vuala.add_message("<div class='notice'>*** "+nick+" left.</div>");
     return true;
 }
 
@@ -311,7 +312,7 @@ function remove_list_users(nick){
    var lengthArr = Vuala.usersArray.length;
    for(var i=0; i<lengthArr; i++) {
         if(Vuala.usersArray[i] == nick) {
-            Vuala.add_message("<div class='notice'>*** Remove user "+nick+"</div>");
+            //Vuala.add_message("<div class='notice'>*** Remove user "+nick+"</div>");
             Vuala.usersArray.splice(i, 1);
             break;
         }
