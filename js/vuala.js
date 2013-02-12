@@ -38,8 +38,7 @@ var Vuala = {
         if(room === Vuala.room){
             var nick = Strophe.getResourceFromJid(from);
             if($(presence).attr("type") === "error" && !Vuala.joined){
-                //Error joining room; reset connection
-                room_error();
+                room_error($(presence).find("text").text());
             }else if(!Vuala.participants[nick] && 
                 $(presence).attr("type") !== "unavailable"){
                 Vuala.participants[nick] = true;
@@ -294,9 +293,9 @@ function room_joined(){
 }
 
 //Error to joined
-function room_error(){
+function room_error(msg){
     Vuala.joined = false;
-    //alert("Error to connect to server");
+    alert(msg);
     window.location.reload(true);
     return true;
 }
@@ -328,6 +327,18 @@ function remove_list_users(nick){
     users_online(Vuala.usersArray.length);
     return true;
 }
+
+//Find user in array
+function find_list_user(nick){
+    var lengthArr = Vuala.usersArray.length;
+    for(var i=0; i<lengthArr; i++){
+        if(Vuala.usersArray[i] == nick){
+            return true;
+        }
+    }
+    return false;
+}
+
 
 function users_online(num){
     $("#num_users_online").text(num);
