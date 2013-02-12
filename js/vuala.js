@@ -39,7 +39,7 @@ var Vuala = {
             var nick = Strophe.getResourceFromJid(from);
             if($(presence).attr("type") === "error" && !Vuala.joined){
                 //Error joining room; reset connection
-                alert("Error to connect");
+                room_error();
             }else if(!Vuala.participants[nick] && 
                 $(presence).attr("type") !== "unavailable"){
                 Vuala.participants[nick] = true;
@@ -290,6 +290,14 @@ function room_joined(){
     Vuala.joined = true;
     $('#leave').removeAttr('disabled');
     Vuala.add_message("<div class='notice'>**** Room joined.</div>");
+    return true;
+}
+
+//Error to joined
+function room_error(){
+    Vuala.joined = false;
+    //alert("Error to connect to server");
+    window.location.reload(true);
     return true;
 }
 
