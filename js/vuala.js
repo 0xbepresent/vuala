@@ -328,18 +328,7 @@ function remove_list_users(nick){
     return true;
 }
 
-//Find user in array
-function find_list_user(nick){
-    var lengthArr = Vuala.usersArray.length;
-    for(var i=0; i<lengthArr; i++){
-        if(Vuala.usersArray[i] == nick){
-            return true;
-        }
-    }
-    return false;
-}
-
-
+//Display users online
 function users_online(num){
     $("#num_users_online").text(num);
     return true;
